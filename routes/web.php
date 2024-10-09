@@ -18,12 +18,12 @@ Route::get('/dashboard', function () {
     $stories = Story::latest()->limit(5)->get();
     $adventureStories = Category::with([
         'stories' => function ($query) {
-            $query->select('name', 'category_id')->limit(5);
+            $query->select('id', 'image', 'category_id')->limit(5);
         }
     ])->where('name', 'Adventure')->first();
     $historyStories = Category::with([
         'stories' => function ($query) {
-            $query->select('name', 'category_id')->limit(5);
+            $query->select('id', 'image', 'category_id')->limit(5);
         }
     ])->where('name', 'History')->first();
     return view('dashboard', compact('categories', 'stories', 'adventureStories', 'historyStories'));

@@ -78,7 +78,7 @@ class StoryController extends Controller
      */
     public function show($id)
     {
-        $stories = Story::select('image')->get();
+        $stories = Story::select('id', 'image')->get();
         $story = Story::with('authors:name')->select('id', 'name', 'summary', 'image')->findOrFail($id);
         return view('stories.details_story', compact('story', 'stories'));
 

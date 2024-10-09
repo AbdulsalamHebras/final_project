@@ -25,7 +25,7 @@ class StoryRequest extends FormRequest
             'name' => 'required|min:5|max:20|string|unique:stories,name',
             'summary' => 'nullable|max:255',
             'writing_date' => 'required|date|before_or_equal:Today',
-            'image' => 'nullable|mimes:png,jpg|max:5120',
+            'image' => 'required|mimes:png,jpg|max:5120',
             'category_id' => 'numeric|required',
             'language' => 'required|string',
             'parts' => 'numeric|required',

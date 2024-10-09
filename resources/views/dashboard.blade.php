@@ -12,14 +12,19 @@
                     @endif
                     <h1>Trending Stories</h1>
                     @foreach ($stories as $story)
-                        <h2>{{ $story->name }}</h2>
-                        <a href="{{ route('story.show', $story->id) }}"><button>Details</button></a>
+                        <a href="{{ route('story.show', $story->id) }}">
+                            <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px" width="300px"
+                                style="display: inline;margin:10px">
+                        </a>
                     @endforeach
                     <h1>Top Adventure Stories</h1>
                     @if ($adventureStories && $adventureStories->stories)
                         <ul>
                             @foreach ($adventureStories->stories as $story)
-                                <li>{{ $story->name }}</li>
+                                <a href="{{ route('story.show', $story->id) }}">
+                                    <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
+                                        width="300px" style="display: inline;margin:10px">
+                                </a>
                             @endforeach
                         </ul>
                     @endif
@@ -28,7 +33,10 @@
                     @if ($historyStories && $historyStories->stories)
                         <ul>
                             @foreach ($historyStories->stories as $story)
-                                <li>{{ $story->name }}</li>
+                                <a href="{{ route('story.show', $story->id) }}">
+                                    <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px"
+                                        width="300px" style="display: inline;margin:10px">
+                                </a>
                             @endforeach
                         </ul>
                     @endif
