@@ -21,8 +21,9 @@ class StoryRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = explode('/', request()->requestUri);
         return [
-            'name' => 'required|min:5|max:20|string|unique:stories,name',
+            'name' => 'required|min:5|max:20|string|unique:stories,name,' . $id[count($id) - 1],
             'summary' => 'nullable|max:255',
             'writing_date' => 'required|date|before_or_equal:Today',
             'image' => 'required|mimes:png,jpg|max:5120',
