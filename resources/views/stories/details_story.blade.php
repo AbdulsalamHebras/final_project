@@ -11,5 +11,5 @@
 <a href="{{ route('story.favorite', $story->id) }}"><button>Favorite</button></a>
 <h2>View More</h2>
 @foreach ($stories as $story)
-    <img src="{{ asset('images/' . $stories->image) }}" alt="" height="300px" width="300px">
+    <img src="{{ asset('images/' . $story->image) }}" alt="" height="300px" width="300px">
 @endforeach
